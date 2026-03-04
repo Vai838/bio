@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaishnav Sankar K | Science Education Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-page: #f8f9fa;
+            --bg-sidebar: #1a252c; /* Deep Observatory Slate */
+            --text-main: #2b3035;
+            --text-sidebar: #e9ecef;
+            --accent-blue: #0d6efd;
+            --accent-hover: #0b5ed7;
+            --border-light: #dee2e6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Fixed Sidebar Layout */
+        aside {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            color: var(--text-sidebar);
+            position: fixed;
+            height: 100vh;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow-y: auto;
+            border-right: 4px solid var(--accent-blue);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') center/50% no-repeat;
+        }
+
+        aside h1 {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .title-badge {
+            background: rgba(13, 110, 253, 0.2);
+            color: #6ea8fe;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(13, 110, 253, 0.5);
+        }
+
+        .contact-list {
+            list-style: none;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list a {
+            color: var(--text-sidebar);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-list a:hover { color: var(--accent-blue); }
+        .contact-list i { color: #6ea8fe; width: 20px; text-align: center; }
+
+        /* Main Content Area */
+        main {
+            margin-left: 320px;
+            padding: 4rem 5rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .intro-text {
+            font-family: 'Lora', serif;
+            font-size: 1.3rem;
+            color: #495057;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 1.5rem;
+            font-style: italic;
+        }
+
+        h2.section-heading {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            color: var(--bg-sidebar);
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+            margin: 3.5rem 0 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2.section-heading i {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        /* Research & Education Timelines */
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-light);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+        }
+
+        .meta-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bg-sidebar);
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            background: rgba(13, 110, 253, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .item-subtitle {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        ul.details-list {
+            list-style-type: none;
+            padding-left: 0.5rem;
+        }
+
+        ul.details-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        ul.details-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Compact Grids for smaller items */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-card {
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--accent-blue);
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .tech-skills p {
+            background: #fff;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--bg-sidebar);
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            aside { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 4px solid var(--accent-blue); padding: 2rem; }
+            main { margin-left: 0; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <img src="profile.jpg" alt="Vaishnav Sankar K" class="profile-img">
+        <h1>Vaishnav Sankar K</h1>
+        <div class="title-badge">PhD Scholar @ HBCSE, TIFR</div>
+        
+        <ul class="contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra</li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:vaishnav@hbcse.tifr.res.in">vaishnav@hbcse.tifr.res.in</a></li>
+            <li><i class="fa-solid fa-phone"></i> +91 22 2507 2220</li>
+            <li><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/vaishnav-sankar-k" target="_blank">vaishnav-sankar-k</a></li>
+            <li><i class="fa-brands fa-github"></i> <a href="https://github.com/Vai838" target="_blank">Vai838</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="intro-text">
+            Research Interests: Physics Education, Modeling and Conceptual Change, Student-Teacher Conceptions, and Technology in STEM.
+        </div>
+
+        <h2 class="section-heading"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">PhD in Science Education</span>
+                <span class="item-date">2025 – Present</span>
+            </div>
+            <div class="item-subtitle">Homi Bhabha Centre for Science Education (HBCSE - TIFR), Mumbai</div>
+            <ul class="details-list">
+                <li>Conducted a qualitative analysis of Class 6 state board mathematics textbook using grounded theory approach to evaluate the introduction and teaching of integers.</li>
+                <li>Organised a Virtual Reality (VR) session for National Science Day celebrations at HBCSE and volunteered for Frontiers of Science 2025 at TIFR Colaba.</li>
+                <li>Attending a cross institution course on Learning Science at IIT Bombay (January to April 2026).</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Integrated MSc.Ed. Physics</span>
+                <span class="item-date">2019 – 2025</span>
+            </div>
+            <div class="item-subtitle">Regional Institute of Education (NCERT), Mysuru</div>
+            <ul class="details-list">
+                <li>Equivalent to BSc.BEd (PCM) + MSc (Physics)</li>
+                <li><strong>CGPA:</strong> 7.8/10</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Class 12 (PCMB)</span>
+                <span class="item-date">2019</span>
+            </div>
+            <div class="item-subtitle">Government Higher Secondary School, Periya, Kerala</div>
+            <ul class="details-list"><li><strong>Percentage:</strong> 99%</li></ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Class 10 (CBSE)</span>
+                <span class="item-date">2017</span>
+            </div>
+            <div class="item-subtitle">Amrita Vidyalayam, Kanhangad, Kerala</div>
+            <ul class="details-list"><li><strong>CGPA:</strong> 10/10</li></ul>
+        </div>
+
+
+        <h2 class="section-heading"><i class="fa-solid fa-microscope"></i> Science Research Experience</h2>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Catalogue of SEP events observed by CLASS</span>
+                <span class="item-date">Jun 2025 – Jul 2025</span>
+            </div>
+            <div class="item-subtitle">Raman Research Institute (RRI), Bengaluru</div>
+            <ul class="details-list">
+                <li>Developed a catalogue of Solar Energetic Particle (SEP) events observed at the Moon by Chandrayaan-2 Large Area Soft X-ray Spectrometer (CLASS) in the 7-16 keV energy range.</li>
+                <li>Developed a semi-automated pipeline to identify SEP events from Galactic Cosmic Ray (GCR) and geotail particles.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Understanding flare dynamics using SUIT data</span>
+                <span class="item-date">Mar 2025</span>
+            </div>
+            <div class="item-subtitle">IIT Guwahati</div>
+            <ul class="details-list">
+                <li>Processed and analysed Level-2 Near UV image data from the Solar Ultraviolet Imaging Telescope (SUIT) data as part of the Aditya-L1 workshop.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Q-Daksha Internship - Experimental Physics</span>
+                <span class="item-date">Jun 2024</span>
+            </div>
+            <div class="item-subtitle">IISc, Bengaluru</div>
+            <ul class="details-list">
+                <li>Fabricated 2D van der Waals heterostructures (Graphene and hBN) using dry transfer method.</li>
+                <li>Performed mechanical exfoliation of 2D materials using the scotch tape method and their optical characterisation.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">SEP analysis using CLASS and GOES</span>
+                <span class="item-date">Sep 2023 – Aug 2024</span>
+            </div>
+            <div class="item-subtitle">Online</div>
+            <ul class="details-list">
+                <li>Developed a Python pipeline to catalogue solar energetic particle (SEP) events, correlating data from Chandrayaan-2 Large Area Soft X-ray Spectrometer (CLASS) and Geostationary Operational Environmental Satellite (GOES).</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Citizen Science Projects (IASC, Exoplanet Watch)</span>
+                <span class="item-date">Apr 2022 – May 2025</span>
+            </div>
+            <div class="item-subtitle">Online</div>
+            <ul class="details-list">
+                <li>Analyzed telescope data and performed astrometry for asteroid detection for International Astronomical Search Collaboration (IASC); Organized workshops to train college and school students for this.</li>
+                <li>Processed observational data using the EXOTIC Pipeline to produce transit curves for reporting to American Association of Variable Star Observers (AAVSO).</li>
+            </ul>
+        </div>
+
+
+        <h2 class="section-heading"><i class="fa-solid fa-users-viewfinder"></i> Science Education & Outreach</h2>
+        
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Founder & Resource Person</span>
+                <span class="item-date">Apr 2020 – Present</span>
+            </div>
+            <div class="item-subtitle">El Fénix, Mysuru</div>
+            <ul class="details-list">
+                <li>Founded an initiative to develop and distribute Open Educational Resources (OER) using Free and Open Source Software (FOSS).</li>
+                <li>Conducted capacity building workshops on LaTeX, Python, and Linux for college students.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Core Member & Resource Person</span>
+                <span class="item-date">Jan 2024 – Present</span>
+            </div>
+            <div class="item-subtitle">Akasha Vidyalaya</div>
+            <ul class="details-list">
+                <li>Facilitated Astronomy and STEM activities in 5 rural schools across Karnataka.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="meta-header">
+                <span class="item-title">Founding Observatory Coordinator & Club President</span>
+                <span class="item-date">Mar 2020 – May 2025</span>
+            </div>
+            <div class="item-subtitle">RIEM COSMOS, RIE Mysuru</div>
+            <ul class="details-list">
+                <li>Organized demonstration sessions and trained students on telescope handling, building a team and creating e-content and training resources.</li>
+                <li>Built the team that bagged the best club award and has been the longest active club in the college ever since.</li>
+            </ul>
+        </div>
+
+
+        <h2 class="section-heading"><i class="fa-solid fa-chalkboard-user"></i> Teaching Experience</h2>
+
+        <div class="grid-container">
+            <div class="grid-card">
+                <span class="card-date">Sep 2024</span>
+                <div class="item-title">Teaching Internship</div>
+                <div class="item-subtitle">Jawahar Navodaya Vidyalaya, Haveri</div>
+                <ul class="details-list">
+                    <li>Taught Physics for classes 12, 10, and 9.</li>
+                    <li>Conducted astronomy demonstrations using Stellarium for National Science Day.</li>
+                </ul>
+            </div>
+
+            <div class="grid-card">
+                <span class="card-date">Nov 2022 – Dec 2022</span>
+                <div class="item-title">Teaching Internship</div>
+                <div class="item-subtitle">Ideal Jawa Rotary School, Mysuru</div>
+                <ul class="details-list">
+                    <li>Taught Class 8 Chemistry, Class 9 Physics, and Class 7 Math.</li>
+                    <li>Organized educational events (Quiz, Art Exhibition, Lunar-Eclipse Awareness).</li>
+                </ul>
+            </div>
+
+            <div class="grid-card">
+                <span class="card-date">Jun 2022 – Jan 2025</span>
+                <div class="item-title">Part-time Tutor</div>
+                <div class="item-subtitle">DKS Academy, Mysuru</div>
+                <ul class="details-list">
+                    <li>Facilitated learning of Physics and Mathematics for classes 7 to 9.</li>
+                </ul>
+            </div>
+
+            <div class="grid-card">
+                <span class="card-date">Apr 2021 – Nov 2023</span>
+                <div class="item-title">Subject Matter Expert</div>
+                <div class="item-subtitle">Study.com (Online)</div>
+                <ul class="details-list">
+                    <li>Worked as a QnA expert and developed question batches for Physics K-12 level.</li>
+                </ul>
+            </div>
+            
+            <div class="grid-card">
+                <span class="card-date">Jun 2023 – Mar 2024</span>
+                <div class="item-title">Teacher (Volunteer)</div>
+                <div class="item-subtitle">JTD Foundation</div>
+                <ul class="details-list">
+                    <li>Instructed class 11 Physics under the NGO Joining the Dots.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-heading"><i class="fa-solid fa-award"></i> Conferences & Achievements</h2>
+        
+        <div class="timeline-item">
+            <div class="item-title">Conferences Attended</div>
+            <ul class="details-list" style="margin-top: 0.5rem;">
+                <li><strong>ICPE 2025:</strong> The IUPAP - International Conference on Physics Education, IIT Ropar (Dec 2025)</li>
+                <li><strong>T4E 2025:</strong> International Conference on Technology 4 Education, IIT Madras (Dec 2025)</li>
+                <li><strong>Generation AI:</strong> Shaping Education for Flourishing, UNESCO MGIEP & IUCTE-RIEM (May 2023)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="item-title">Key Achievements</div>
+            <ul class="details-list" style="margin-top: 0.5rem;">
+                <li>Cleared TIFR PhD Exam in Science Education, TIFR-HBCSE (Apr 2025)</li>
+                <li>Best Poster Presentation - National Technology Day, RIE Mysore (Sep 2023)</li>
+                <li>AIR 3 in NCERT-CEE Exam for MSc.Ed Physics, NCERT (Jun 2019)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="item-title">Workshops & Summer Schools</div>
+            <ul class="details-list" style="margin-top: 0.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <li>Scientific Computing/ML Workshop, NIT Jalandhar (Dec '25)</li>
+                <li>9th Adithya-L1 Support Cell workshop, IIT Guwahati (Mar '25)</li>
+                <li>Science & Math Teachers Training, ICTS Bangalore (Sep '24)</li>
+                <li>Astronomy & Astrophysics Summer School, IIST (Jul '24)</li>
+                <li>Workshop to Translate Chandrayan Materials, RIE Mysore (Nov '23)</li>
+                <li>5th Adithya-L1 Support Cell workshop, IIT Kanpur (Oct '23)</li>
+                <li>Astronomy Data Analysis with Python, MANUU (Sep '23)</li>
+                <li>Summer School on Theoretical Physics, IUCAA (May '23)</li>
+                <li>Physics Training and Talent Search, Ahmedabad Univ. (Jul '21)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="item-title">Certifications</div>
+            <ul class="details-list" style="margin-top: 0.5rem;">
+                <li>Course on Generative AI for Educators, Google (Jan 2025)</li>
+                <li>Qualified Central Teachers Eligibility Test, CBSE (May 2023)</li>
+                <li>MOOC on Designing for Communities of Inquiry, Commonwealth of Learning (Apr 2023)</li>
+                <li>MOOC on Blended Learning Practices, Athabasca University (Feb 2023)</li>
+                <li>Virtual Labs for Teaching and Learning, CIET-NCERT (Jan 2022)</li>
+            </ul>
+        </div>
+
+        <h2 class="section-heading"><i class="fa-solid fa-code"></i> Technical Skills & Languages</h2>
+        <div class="tech-skills">
+            <p><strong>Programming & Tools:</strong> Python (Astropy, Matplotlib, NumPy, SciPy, Pandas, OpenCV, Selenium), Bash, LaTeX, Git, Moodle, Inkscape, Github, GIMP, Jupyter Notebook, Overleaf</p>
+            <p><strong>Languages:</strong> English & Malayalam (Excellent), Hindi (Conversational), Kannada (Basic)</p>
+        </div>
+
+        <h2 class="section-heading"><i class="fa-solid fa-address-book"></i> References</h2>
+        <div class="grid-container">
+            <div class="grid-card">
+                <div class="item-title" style="font-size: 1.1rem;">Prof. G Umesh</div>
+                <div class="item-subtitle" style="font-size: 0.85rem; margin-bottom: 0.5rem;">Retired Professor of Physics, NIT Karnataka</div>
+                <a href="mailto:umesh52@gmail.com" style="color: var(--accent-blue); font-size: 0.9rem; text-decoration: none;">umesh52@gmail.com</a>
+            </div>
+            <div class="grid-card">
+                <div class="item-title" style="font-size: 1.1rem;">Dr. Santosh Kumar</div>
+                <div class="item-subtitle" style="font-size: 0.85rem; margin-bottom: 0.5rem;">Associate Professor of Physics, RIE Bhopal</div>
+                <a href="mailto:santoshkumar.ncert@gmail.com" style="color: var(--accent-blue); font-size: 0.9rem; text-decoration: none;">santoshkumar.ncert@gmail.com</a>
+            </div>
+            <div class="grid-card">
+                <div class="item-title" style="font-size: 1.1rem;">Prof. C. G. Venkatesha Murthy</div>
+                <div class="item-subtitle" style="font-size: 0.85rem; margin-bottom: 0.5rem;">Retired Dean of Research & Prof. of Ed., RIE Mysore</div>
+                <a href="mailto:venk_murthy2003@yahoo.co.in" style="color: var(--accent-blue); font-size: 0.9rem; text-decoration: none;">venk_murthy2003@yahoo.co.in</a>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
